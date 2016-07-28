@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :events
+  resources :users
+  resources :sessions
+
+  resources :events do
+    resources :entries
+  end
+  resources :users do
+    resources :entries
+  end
+
+  get '/auth/:provider/callback' => 'sessions#callback'
+  get "/signout" => "sessions#destroy", :as => :signout
+
+  root :to => "events#index"
 end

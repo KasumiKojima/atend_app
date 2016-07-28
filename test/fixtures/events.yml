@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  sub_title: MyString
+  start: 2016-07-28 04:26:29
+  end: 2016-07-28 04:26:29
+  capacity: 1
+  place_name: MyString
+  place_address: MyString
+
+two:
+  title: MyString
+  sub_title: MyString
+  start: 2016-07-28 04:26:29
+  end: 2016-07-28 04:26:29
+  capacity: 1
+  place_name: MyString
+  place_address: MyString
