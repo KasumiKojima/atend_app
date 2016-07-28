@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <%= f.hidden_field(:event_id) %>
+  <%= f.hidden_field(:user_id) %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -35,6 +35,16 @@
   <%= @event.place_address %>
 </p>
 
+<p>
+  <strong>Entry accounts:</strong>
+  <% @event.entries.each do |entry| %>
+    <p>
+    <%= entry.user.name %>
+    </p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
-<%= link_to 'Join', entry_events_path(@event)%>
+
+<%= link_to 'Join', new_entry_path(event_id: @event.id), method: :get %>

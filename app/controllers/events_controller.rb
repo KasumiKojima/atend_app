@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :entry]
+  skip_before_action :require_login
 
   # GET /events
   def index
@@ -43,10 +44,6 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
-  end
-
-  def entry
-    redirect_to new_event_entry_path(@event)
   end
 
   private

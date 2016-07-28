@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @entry = Entry.new(event_id: params[:event_id], user_id: current_user.id)
   end
 
   # GET /entries/1/edit
@@ -21,10 +21,11 @@ class EntriesController < ApplicationController
 
   # POST /entries
   def create
+    binding.pry
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to @entry, notice: 'Entry was successfully created.'
+      redirect_to "/events/#{@entry.event_id}" , notice: 'Entry created.'
     else
       render :new
     end
@@ -53,6 +54,6 @@ class EntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def entry_params
-      params.fetch(:entry, {})
+      params.require(:entry).permit(:event_id, :user_id, :comment)
     end
 end

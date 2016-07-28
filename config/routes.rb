@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  resources :events
   resources :users
   resources :sessions
+  resources :entries
 
   resources :events do
     resources :entries
-    collection do
-      get "entry"
-    end
   end
   resources :users do
     resources :entries
