@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :entries
+    collection do
+      get "entry"
+    end
   end
   resources :users do
     resources :entries
